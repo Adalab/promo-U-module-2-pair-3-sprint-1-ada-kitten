@@ -58,4 +58,20 @@ const kittenThree = `  <li class="card">
 </p>
 </li>`;
 
-listElement .innerHTML = kittenOne + kittenTwo + kittenThree;
+
+
+const input_search_desc = document.querySelector('.js_in_search_desc');
+
+const descrSearchText = input_search_desc.value;
+
+if( kittenDesc.includes(descrSearchText) ) {
+  listElement.innerHTML= kittenOne;
+  }
+  
+  if( kittenDesc1.includes(descrSearchText) ) {
+  listElement.innerHTML=kittenTwo;
+  }
+  
+  if( kittenDesc2.includes(descrSearchText) ) {
+    listElement.innerHTML=kittenThree;
+  }
