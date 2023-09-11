@@ -63,6 +63,13 @@ const kittenThree = `  <li class="card">
 const input_search_desc = document.querySelector('.js_in_search_desc');
 
 const descrSearchText = input_search_desc.value;
+const btnAñadir = document.querySelector ('.js-btn-add');
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+
+
 
 if( kittenDesc.includes(descrSearchText) ) {
   listElement.innerHTML= kittenOne;
@@ -75,3 +82,22 @@ if( kittenDesc.includes(descrSearchText) ) {
   if( kittenDesc2.includes(descrSearchText) ) {
     listElement.innerHTML=kittenThree;
   }
+
+btnAñadir.addEventListener ('click', ()=> {
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+  
+  
+  
+
+  
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
+    
+  } else {
+ labelMessageError.innerHTML = "Se ha añadido un gatito nuevo";
+  }
+
+
+})
