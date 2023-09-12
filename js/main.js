@@ -83,14 +83,11 @@ if( kittenDesc.includes(descrSearchText) ) {
     listElement.innerHTML=kittenThree;
   }
 
-btnAñadir.addEventListener ('click', ()=> {
+btnAñadir.addEventListener ('click', (addNewKitten)=> {
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
   const valueName = inputName.value;
   
-  
-  
-
   
   if (valueDesc === '' || valuePhoto === '' || valueName === '') {
     labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
@@ -98,6 +95,32 @@ btnAñadir.addEventListener ('click', ()=> {
   } else {
  labelMessageError.innerHTML = "Se ha añadido un gatito nuevo";
   }
-
-
 })
+function addNewKitten(event) {
+  //mueve el código que está dentro del evento
+}
+
+const newFormElement = document.querySelector('.collapsed');
+
+const btnmas = document.querySelector('.js-btn-mas');
+
+btnmas.addEventListener('click', handleClickNewCatForm);
+
+/*linkNewFormElement.addEventListener('click', handleClickNewCatForm);*/
+
+function showNewCatForm() {
+  newFormElement.classList.remove('collapsed');
+}
+function hideNewCatForm() {
+  newFormElement.classList.add('collapsed');
+}
+
+function handleClickNewCatForm(event) {
+  console.log('Holis');
+  event.preventDefault();
+  if (newFormElement.classList.contains('collapsed')) {
+    newFormElement.classList.remove('collapsed');
+  } else {
+    newFormElement.classList.add('collapsed');
+  }
+}
