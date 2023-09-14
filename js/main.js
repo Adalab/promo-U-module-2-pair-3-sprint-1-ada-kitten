@@ -1,6 +1,17 @@
 'use strict';
 
 const listElement = document.querySelector ('.js-list');
+const input_search_desc = document.querySelector('.js_in_search_desc');
+const btnAñadir = document.querySelector ('.js-btn-add');
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+const newFormElement = document.querySelector('.collapsed');
+const btnmas = document.querySelector('.js-btn-mas');
+const buttonSearch = document.querySelector('.js-button-search');
+
+
 const kittenImage = 'https://dev.adalab.es/gato-siames.webp';
 const kittenName = 'Anastacio';
 const kittenDesc =
@@ -17,94 +28,49 @@ const kittenDesc2 =
   '   Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad.Sus ojos son grandes y las orejas resultan largas y en punta.';
 const kittenRace2 = 'Maine Coon';
 
-const kittenOne = `<li class="card">
-
-
-
-
-<article>
-  <img
+const kittenOne = `<li class="card"><article><img
     class="card_img"
     src=${kittenImage}
-    alt="gatito"
-  />
+    alt="gatito"  />
   <h3 class="card_title " >${kittenName}</h3>
   <h4 class="card_race">${kittenRace}</h4>
   <p class="card_description">${kittenDesc}</p>
 </article>
 </li>`;
-const kittenTwo = ` <li class="card">
-<img
+const kittenTwo = ` <li class="card"><img
   class="card_img"
   src=${kittenImage1}
-  alt="sphynx-cat"
-/>
+  alt="sphynx-cat"/>
 <h3 class="card_title">${kittenName1}</h3>
 <h4 class="card_race">${kittenRace1}</h4>
-<p class="card_description">
-  ${kittenDesc1}
-</p>
-</li>`;
-const kittenThree = `  <li class="card">
-<img
+<p class="card_description">${kittenDesc1}</p></li>`;
+const kittenThree = `  <li class="card"><img
   class="card_img"
   src=${kittenImage2}
-  alt="maine-coon-cat"
-/>
+  alt="maine-coon-cat"/>
 <h3 class="card_title">${kittenName2}</h3>
 <h4 class="card_race">${kittenRace2}</h4>
-<p class="card_description">
-  ${kittenDesc2}
-</p>
+<p class="card_description">${kittenDesc2}</p>
 </li>`;
 
 
-
-const input_search_desc = document.querySelector('.js_in_search_desc');
+listElement.innerHTML += kittenOne;
+listElement.innerHTML += kittenTwo;
+listElement.innerHTML += kittenThree;
 
 const descrSearchText = input_search_desc.value;
-const btnAñadir = document.querySelector ('.js-btn-add');
-const inputDesc = document.querySelector('.js-input-desc');
-const inputPhoto = document.querySelector('.js-input-photo');
-const inputName = document.querySelector('.js-input-name');
-const labelMessageError = document.querySelector('.js-label-error');
 
-
-
-if( kittenDesc.includes(descrSearchText) ) {
-  listElement.innerHTML= kittenOne;
-  }
-  
-  if( kittenDesc1.includes(descrSearchText) ) {
-  listElement.innerHTML=kittenTwo;
-  }
-  
-  if( kittenDesc2.includes(descrSearchText) ) {
-    listElement.innerHTML=kittenThree;
-  }
-
-btnAñadir.addEventListener ('click', (addNewKitten)=> {
+function addNewKitten(event) {
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
   const valueName = inputName.value;
-  
-  
-  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    if (valueDesc === '' || valuePhoto === '' || valueName === '') {
     labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
     
   } else {
  labelMessageError.innerHTML = "Se ha añadido un gatito nuevo";
   }
-})
-function addNewKitten(event) {
-  //mueve el código que está dentro del evento
 }
-
-const newFormElement = document.querySelector('.collapsed');
-
-const btnmas = document.querySelector('.js-btn-mas');
-
-btnmas.addEventListener('click', handleClickNewCatForm);
 
 /*linkNewFormElement.addEventListener('click', handleClickNewCatForm);*/
 
@@ -124,9 +90,17 @@ function handleClickNewCatForm(event) {
     newFormElement.classList.add('collapsed');
   }
 }
-const buttonSearch = document.querySelector('.js-button-search');
+function renderKitten(url, desc, name, race) {
+  const valuePhoto = inputPhoto.value;
+  const valueDesc = inputDesc.value;
+  const valueName = inputName.value;
+  
+
+
+}
 
 const filterKitten = (event) => {
+ 
   if (kittenDesc.includes(descrSearchText)) {
     listElement.innerHTML += kittenOne;
   }
@@ -137,4 +111,14 @@ const filterKitten = (event) => {
     listElement.innerHTML += kittenThree;
   }
 };
+
+
 buttonSearch.addEventListener('click', filterKitten);
+
+
+btnAñadir.addEventListener ('click', (addNewKitten) 
+  
+);
+
+
+btnmas.addEventListener('click', handleClickNewCatForm);
