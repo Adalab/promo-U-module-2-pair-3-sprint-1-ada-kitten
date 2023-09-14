@@ -124,3 +124,17 @@ function handleClickNewCatForm(event) {
     newFormElement.classList.add('collapsed');
   }
 }
+const buttonSearch = document.querySelector('.js-button-search');
+
+const filterKitten = (event) => {
+  if (kittenDesc.includes(descrSearchText)) {
+    listElement.innerHTML += kittenOne;
+  }
+  if (kittenDesc1.includes(descrSearchText)) {
+    listElement.innerHTML += kittenTwo;
+  }
+  if (kittenDesc2.includes(descrSearchText)) {
+    listElement.innerHTML += kittenThree;
+  }
+};
+buttonSearch.addEventListener('click', filterKitten);
