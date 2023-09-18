@@ -11,6 +11,8 @@ const newFormElement = document.querySelector('.collapsed');
 const btnmas = document.querySelector('.js-btn-mas');
 const buttonSearch = document.querySelector('.js-button-search');
 
+const inputRace = document.querySelector('js-input-race');
+
 
 const kittenImage = 'https://dev.adalab.es/gato-siames.webp';
 const kittenName = 'Anastacio';
@@ -90,12 +92,12 @@ function handleClickNewCatForm(event) {
     newFormElement.classList.add('collapsed');
   }
 }
+
 function renderKitten(url, desc, name, race) {
   const valuePhoto = inputPhoto.value;
   const valueDesc = inputDesc.value;
   const valueName = inputName.value;
-  
-
+  const valueRace = inputRace.value;
 
 }
 
@@ -111,6 +113,21 @@ const filterKitten = (event) => {
     listElement.innerHTML += kittenThree;
   }
 };
+
+// function renderKitten = () => {
+//   const li = <li>
+//   <img src="${kittenImage}"alt="gatito"/>
+//   <h3 class="card_title " >${kittenName}</h3>
+//   <h4 class="card_race">${kittenRace}</h4>
+//   <p class="card_description">${kittenDesc}</p>
+    
+//   </li>;
+//   return li;
+// };
+// const handleListKitten = (event) => {
+//   event.preventDefault();
+//   listElement.innerHTML = renderKitten(${kittenOne}+${kittenTwo}+${kittenThree})
+// };
 
 
 buttonSearch.addEventListener('click', filterKitten);
